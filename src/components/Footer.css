@@ -1,0 +1,113 @@
+/* Footer Styles */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 40px;
+  border-top: 1px solid #333;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, 
+    transparent 0%, 
+    transparent 20%, 
+    rgba(255, 255, 255, 0.1) 30%, 
+    rgba(255, 255, 255, 0.3) 40%, 
+    rgba(255, 255, 255, 0.6) 50%, 
+    rgba(255, 255, 255, 0.3) 60%, 
+    rgba(255, 255, 255, 0.1) 70%, 
+    transparent 80%, 
+    transparent 100%
+  );
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-name {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #fff 0%, #e4e4e4 40%, #949494 70%, #626262 100%);  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.footer-name:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #888;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.copyright:hover {
+  color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 20px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .footer-name {
+    font-size: 16px;
+  }
+  
+  .copyright {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px 15px;
+  }
+  
+  .footer-content {
+    padding: 0 10px;
+  }
+  
+  .footer-name {
+    font-size: 14px;
+  }
+  
+  .copyright {
+    font-size: 11px;
+  }
+}
+

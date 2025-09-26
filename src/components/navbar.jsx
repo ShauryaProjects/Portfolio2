@@ -4,6 +4,7 @@ import './navbar.css'
 const navbar = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +47,12 @@ const navbar = () => {
         })
       }
     }
+    // Close mobile menu after clicking
+    setIsMobileMenuOpen(false)
+  }
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   return (
@@ -58,13 +65,39 @@ const navbar = () => {
             <p>Full Stack Developer + Designer</p>
           </div>
         </div>
-        <div className="nav">
+        
+        {/* Desktop Navigation */}
+        <div className="nav desktop-nav">
+          <p onClick={() => scrollToSection('projects')}>Projects</p>
+          <p onClick={() => scrollToSection('skills')}>Skills</p>
+          <p onClick={() => scrollToSection('about')}>About</p>
+          <p onClick={() => scrollToSection('contact')}>Contact</p>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="mobile-menu-button" onClick={toggleMobileMenu}>
+          <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Sidebar */}
+      <div className={`mobile-sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-nav">
           <p onClick={() => scrollToSection('projects')}>Projects</p>
           <p onClick={() => scrollToSection('skills')}>Skills</p>
           <p onClick={() => scrollToSection('about')}>About</p>
           <p onClick={() => scrollToSection('contact')}>Contact</p>
         </div>
       </div>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
+      )}
     </div>
   )
 }

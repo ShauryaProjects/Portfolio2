@@ -2,6 +2,15 @@ import React from 'react'
 import './Home.css'
 
 const Home = () => {
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Shaurya_Srivastava_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="home-container">
       {/* Availability Banner */}
@@ -23,10 +32,10 @@ const Home = () => {
           <p>Designing and developing visually stunning and technically proficient websites for clients worldwide.</p>
         </div>
 
-                 {/* Contact Button */}
+                 {/* Download Resume Button */}
          <div className="contact-section">
-           <div className="contact-button">
-             <span>hey@shaurya.com</span>
+           <div className="contact-button" onClick={handleDownloadResume}>
+             <span>Download Resume</span>
            </div>
          </div>
                 </div>

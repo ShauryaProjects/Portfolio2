@@ -47,33 +47,26 @@
 /* Responsive adjustments for background text */
 @media (max-width: 768px) {
   .bg-name {
-    top: 32px;
+    top: 52px; /* shifted down */
     left: -55%;
     line-height: 1.05;
   }
   .bg-name .bg-line {
     font-size: 28vw; /* scale with viewport width */
+    font-weight: 900; /* increased font weight */
   }
 }
 
 @media (max-width: 480px) {
   .bg-name {
-    top: 28px;
+    top: 48px; /* shifted down */
     left: -70%;
     line-height: 0.92;
   }
   .bg-name .bg-line {
     font-size: 34vw; /* larger relative size for small screens */
+    font-weight: 900; /* increased font weight */
   }
-}
-
-@media (max-width: 768px) {
-  .bg-name { left: -14%; }
-}
-
-@media (max-width: 480px) {
-  .bg-name { left: -18%; line-height: 0.85; }
-  .bg-name .bg-line { font-size: clamp(96px, 28vw, 240px); }
 }
 
 /* Mobile responsive height */

@@ -13,6 +13,12 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* Background big name text (simple, non-intrusive) */}
+      <div className="bg-name" aria-hidden="true">
+        <div className="bg-line">SHAURYA</div>
+        <div className="bg-line">SRIVASTAVA</div>
+      </div>
+
       {/* Availability Banner */}
 
       {/* Profile Picture Section */}

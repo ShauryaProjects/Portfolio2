@@ -13,6 +13,69 @@
   overflow-x: hidden;
 }
 
+/* Simple background text behind hero; later DOM paints above it */
+.bg-name {
+  position: absolute;
+  top: 44px;
+  left: -40%; /* shift left so only URYA / STAVA show */
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.04); /* faint, no blur */
+}
+
+.bg-name .bg-line {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 230px;
+  transform: translateX(-14%);
+  opacity: 0;
+  animation: bgLineSlide 900ms ease-out forwards;
+}
+
+/* Staggered delays */
+.bg-name .bg-line:nth-child(1) { animation-delay: 150ms; }
+.bg-name .bg-line:nth-child(2) { animation-delay: 300ms; }
+
+@keyframes bgLineSlide {
+  from { transform: translateX(-14%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive adjustments for background text */
+@media (max-width: 768px) {
+  .bg-name {
+    top: 32px;
+    left: -55%;
+    line-height: 1.05;
+  }
+  .bg-name .bg-line {
+    font-size: 28vw; /* scale with viewport width */
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-name {
+    top: 28px;
+    left: -70%;
+    line-height: 0.92;
+  }
+  .bg-name .bg-line {
+    font-size: 34vw; /* larger relative size for small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-name { left: -14%; }
+}
+
+@media (max-width: 480px) {
+  .bg-name { left: -18%; line-height: 0.85; }
+  .bg-name .bg-line { font-size: clamp(96px, 28vw, 240px); }
+}
+
 /* Mobile responsive height */
 @media (max-width: 768px) {
   .home-container {

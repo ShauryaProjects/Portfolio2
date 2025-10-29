@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './components/navbar'
 import Home from './components/Home'
 import About from './components/About'
@@ -9,6 +9,12 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 const App = () => {
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />
